@@ -7,9 +7,10 @@ A native Obsidian spreadsheet editor built on `.csv` files.
 *(checked = complete)*
 
 - [x] follow Obsidian theme styling
-- [ ] edit `.csv` files
+- [ ] edit `.csv` files as a sheet
+- [ ] bulk select cells
 - [ ] formulas
-- [ ] embed sheet or section of sheet in notes
+- [ ] embed a sheet or section of a sheet in notes
 - [ ] embed data from another sheet
 - [ ] structured data ([details](#structured-data))
 - [ ] notes as rows (database of `.md` notes)
