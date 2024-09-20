@@ -15,24 +15,20 @@
 </script>
 
 <div class="table">
-	<div class="row">
-		<span></span>
-		{#each nums[0] as _, i}
-			<span>{i+1}</span>
-		{/each}
-	</div>
 	{#each nums as row, i}
 		<div class="row" class:header={i < headerRows}>
 			<span>{i+1}</span>
-			{#each row as val, j}
+			{#each row as val}
 				<input type="text" bind:value={val} />
 			{/each}
+			{#if i === 0}
+				<button id="AddCol" on:click={addCol}>+</button>
+			{/if}
 		</div>
 	{/each}
+	<button id="AddRow" class="row" on:click={addRow}>+</button>
 </div>
 
-<button on:click={addCol}>+ col</button>
-<button on:click={addRow}>+ row</button>
 
 <style lang="scss">
 	$border-color: var(--color-base-20);
@@ -40,11 +36,32 @@
 
 	.table {
 		display: grid;
-		grid-template-rows: auto;
+		margin-top: var(--size-2-1);
+
+		button {
+			background: transparent;
+			border-radius: 0;
+			box-shadow: none;
+			cursor: pointer;
+			&:hover {
+				background-color: $border-color;
+			}
+		}
+
+		#AddCol {
+			width: var(--size-4-8);
+			background-color: $border-color;
+			border: $border;
+			&:hover {
+				background-color: var(--color-base-25);
+				border-color: var(--color-base-25);
+			}
+		}
 	}
 
 	.row {
 		display: grid;
+		grid-column: 1;
 		grid-template-columns: var(--size-4-8);
 		grid-auto-columns: 8rem;
 		grid-auto-flow: column;
