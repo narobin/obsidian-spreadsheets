@@ -1,14 +1,9 @@
 import {
 	App,
-	Editor,
-	MarkdownView,
 	Modal,
-	Notice,
 	Plugin,
-	PluginSettingTab, setIcon,
+	PluginSettingTab,
 	Setting,
-	Workspace,
-	type WorkspaceLeaf
 } from 'obsidian';
 import {TableView, VIEW_TYPE_TABLE} from "./TableView";
 
