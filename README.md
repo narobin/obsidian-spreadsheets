@@ -16,6 +16,10 @@ A native Obsidian spreadsheet editor built on `.csv` files.
 - [ ] insert and edit sheets inline in `.md` notes
 - [ ] build sheets from queries
 
+## Dev Tasks
+
+- [ ] implement CI/CD pipeline to publish updates 
+
 ## Structured Data
 
 Enables setting and enforcing a type for each column.
