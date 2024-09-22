@@ -1,9 +1,18 @@
 <script lang="ts">
+	import type {Table} from "./Table";
+
 	export let nums: any[][];
 	export let headerRows: number = 1;
+	// export let table: Table;
 
 	$: rows = nums.length;
 	$: cols = nums[0].length;
+
+	enum EditMode {
+		Select,
+		Edit,
+		MultiSelect,
+	}
 
 	const addRow = () => {
 		nums = [ ...nums, new Array(cols) ];
@@ -26,9 +35,8 @@
 			{/if}
 		</div>
 	{/each}
-	<button id="AddRow" class="row" on:click={addRow}>+</button>
+	<button id="AddRow" class="row" on:click={addRow}>+ New Row</button>
 </div>
-
 
 <style lang="scss">
 	$border-color: var(--color-base-20);
@@ -43,7 +51,10 @@
 			border-radius: 0;
 			box-shadow: none;
 			cursor: pointer;
+			font-weight: var(--bold-weight);
+			color: var(--color-base-40);
 			&:hover {
+				color: var(--bold-color);
 				background-color: $border-color;
 			}
 		}
@@ -52,6 +63,7 @@
 			width: var(--size-4-8);
 			background-color: $border-color;
 			border: $border;
+			border-radius: var(--border-radius);
 			&:hover {
 				background-color: var(--color-base-25);
 				border-color: var(--color-base-25);

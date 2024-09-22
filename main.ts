@@ -28,8 +28,9 @@ export default class MyPlugin extends Plugin {
 			(leaf) => new TableView(leaf)
 		);
 
-		const ribbonIconEl = this.addRibbonIcon('table', 'Open Table', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('file-spreadsheet', 'Create new sheet', (evt: MouseEvent) => {
 			this.activateView()
+			this.app.vault.create('/table.csv', '');
 		});
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
